@@ -1,0 +1,139 @@
+body {
+  background: #55A1DD;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  padding: 1em;
+}
+
+.header {
+  color: #FFF;
+  font-size: 24px;
+  text-align: center;
+}
+
+.lane {
+  display: inline-block;
+
+  margin: 1em;
+
+  background-color: #efefef;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+
+  min-width: 10em;
+  vertical-align: top;
+}
+
+.lane-header {
+  overflow: auto;
+
+  padding: 1em;
+
+  color: #EFEFEF;
+  background-color: #333;
+
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.lane-name {
+  font-size: 22px;
+  float: left;
+}
+
+.lane-add-note {
+  float: left;
+  margin-right: 0.8em;
+}
+
+.lane-delete {
+  float: right;
+  margin-left: 0.5em;
+
+  visibility: hidden;
+}
+.lane-header:hover .lane-delete {
+  visibility: visible;
+}
+
+.add-lane {
+  padding: 0.5em;
+  cursor: pointer;
+  font-size: 16px;
+  color: #FFF;
+  background-color: #333;
+  border: 1px solid #ccc;
+}
+.add-lane {
+  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
+}
+.add-lane:hover {
+  box-shadow: 0 0 0.5em 0.05em rgba(0, 0, 0, 0.8);
+  transition: 0.4s;	
+}
+
+.lane-add-note button {
+  padding: 0.2em 0.4em;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #55A1DD;
+  border: 1px solid #FFF;
+  border-radius: 0.3em;
+  color: #FFF;
+}
+
+.lane-delete button {
+  padding: 0;
+
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
+
+.notes {
+  margin: 0.5em;
+  padding-left: 0;
+
+  min-width: 10em;
+  list-style: none;
+}
+
+.note {
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+
+  background-color: #FDFDFD;
+  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
+}
+.note:hover {
+  box-shadow: 0 0 0.5em 0.05em rgba(0, 0, 0, 0.8);
+
+  transition: 0.4s;
+}
+
+.note .value {
+  /* force to use inline-block so that it gets minimum height */
+  display: inline-block;
+}
+
+.note .delete {
+  float: right;
+  font-size: 14px;
+  padding: 0;
+
+  background-color: #FDFDFD;
+  border: none;
+
+  cursor: pointer;
+
+  visibility: hidden;
+}
+.note:hover .delete {
+  visibility: visible;
+}
+
