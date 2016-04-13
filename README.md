@@ -17,6 +17,6 @@ The application should be running on http://localhost:8080/.
 ## My feature extensions
 * Delete note references when lane is deleted.
 * Custom styling.
-** Change note color.
+  * Change note color.
 * DnD of Note Lanes.
 
