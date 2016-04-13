@@ -11,19 +11,6 @@ import Editable from './Editable.jsx';
 import {DragSource, DropTarget} from 'react-dnd';
 import ItemTypes from '../constants/itemTypes';
 
-const noteTarget = {
-  hover(targetProps, monitor) {
-    const sourceProps = monitor.getItem();
-    const sourceId = sourceProps.id;
-
-    if(!targetProps.lane.notes.length) {
-      LaneActions.attachToLane({
-        laneId: targetProps.lane.id,
-        noteId: sourceId
-      });
-    }
-  }
-};
 
 const laneSource = {
   beginDrag(props) {
@@ -37,24 +24,32 @@ const laneTarget = {
   hover(targetProps, monitor) {
     const targetId = targetProps.id;
     const sourceProps = monitor.getItem();
+    const sourceType = monitor.getItemType();
     const sourceId = sourceProps.id;
-    
-    if(sourceId !== targetId) {
-      targetProps.onLaneMove({sourceId, targetId});
+
+    if(sourceType === ItemTypes.NOTE) {
+      if(!targetProps.lane.notes.length) {
+        LaneActions.attachToLane({
+          laneId: targetProps.lane.id,
+          noteId: sourceId
+        });
+      }
+    }
+    else if(sourceType === ItemTypes.LANE) {
+      if(sourceId !== targetId) {
+        targetProps.onLaneMove({sourceId, targetId});
+      }
     }
   }
 };
 
-@DropTarget(ItemTypes.NOTE, noteTarget, (connect) => ({
-  connectDropTarget: connect.dropTarget()
-}))
 
 @DragSource(ItemTypes.LANE, laneSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging() 
 }))
 
-@DropTarget(ItemTypes.LANE, laneTarget, (connect) => ({
+@DropTarget([ItemTypes.NOTE, ItemTypes.LANE], laneTarget, (connect) => ({
   connectDropTarget: connect.dropTarget()
 }))
 
@@ -75,7 +70,7 @@ export default class Lane extends React.Component {
           <Editable className="lane-name" editing={lane.editing}
             value={lane.name} onEdit={this.editName} />
           <div className="lane-delete">
-            <button onClick={this.deleteLane}>x</button>
+            <button onClick={this.deleteLane}>X</button>
           </div>
         </div>
         <AltContainer
@@ -86,7 +81,8 @@ export default class Lane extends React.Component {
         >
           <Notes 
             onValueClick={this.activateNoteEdit}
-            onEdit={this.editNote} 
+            onEdit={this.editNote}
+            onColorEdit={this.editColor} 
             onDelete={this.deleteNote} />
         </AltContainer>
       </div>
@@ -101,7 +97,11 @@ export default class Lane extends React.Component {
     }
 
     NoteActions.update({id, task, editing: false});
-  }
+  };
+  editColor(id) {
+
+    NoteActions.update({id, bgcolor: '#7CEB98'});
+  };
   addNote = (e) => {
     // If note is added, avoid opening lane name edit by stopping
     // event bubbling in this case.
@@ -137,7 +137,11 @@ export default class Lane extends React.Component {
   };
   deleteLane = () => {
     const laneId = this.props.lane.id;
+    const laneNotes = this.props.lane.notes;
 
+    laneNotes.forEach((note) => {
+      NoteActions.delete(note.id);
+    });
     LaneActions.delete(laneId);
   };
   activateLaneEdit = () => {

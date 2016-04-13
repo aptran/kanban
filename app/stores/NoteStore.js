@@ -16,6 +16,7 @@ class NoteStore {
     const notes = this.notes;
 
     note.id = uuid.v4();
+    note.bgcolor = '#FDFDFD';
 
     this.setState({
       notes: notes.concat(note)

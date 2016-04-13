@@ -39,7 +39,8 @@ export default class Note extends React.Component {
 
     return dragSource(connectDropTarget(
       <li style={{
-        opacity: isDragging ? 0 : 1
+        opacity: isDragging ? 0 : 1,
+        backgroundColor: this.props.bgcolor
       }} {...props}>{props.children}</li>
     ));
   }

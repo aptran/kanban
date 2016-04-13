@@ -84,6 +84,11 @@ if(TARGET === 'start' || !TARGET) {
           test: /\.css$/,
           loaders: ['style', 'css'],
           include: PATHS.app
+        },
+        {
+          test: /\.(jpg|png)$/,
+          loader: 'file-loader',
+          include: PATHS.app
         }
       ]
     },
@@ -118,6 +123,11 @@ if(TARGET === 'build' || TARGET === 'stats') {
         {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract('style', 'css'),
+          include: PATHS.app
+        },
+        {
+          test: /\.(jpg|png)$/,
+          loader: 'file-loader',
           include: PATHS.app
         }
       ]

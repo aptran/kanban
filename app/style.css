@@ -13,6 +13,11 @@ body {
   text-align: center;
 }
 
+input {
+  font-size: 14px;
+  min-width: 10em;
+}
+
 .lane {
   display: inline-block;
 
@@ -22,7 +27,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 0.5em;
 
-  min-width: 10em;
+  min-width: 12em;
   vertical-align: top;
 }
 
@@ -88,12 +93,14 @@ body {
   padding: 0;
 
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   color: white;
   background-color: rgba(0, 0, 0, 0);
   border: 0;
 }
-
+.lane-delete button:hover {
+  color: #FF6961;
+}
 
 .notes {
   margin: 0.5em;
@@ -109,6 +116,10 @@ body {
 
   background-color: #FDFDFD;
   box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
+  overflow: auto;
+  display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center;
 }
 .note:hover {
   box-shadow: 0 0 0.5em 0.05em rgba(0, 0, 0, 0.8);
@@ -116,19 +127,36 @@ body {
   transition: 0.4s;
 }
 
+.note .options {
+  float: left;
+  margin-right: 0.5em;
+  height: 20px;
+  width: 20px;
+  background: url('paint_bucket.png') no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+
+  visibility: hidden;
+}
+.note:hover .options {
+  visibility: visible;
+}
+
 .note .value {
   /* force to use inline-block so that it gets minimum height */
   display: inline-block;
+  width: 10em;
 }
 
 .note .delete {
-  float: right;
   font-size: 14px;
   padding: 0;
-
+  margin-left: 0.5em;
+  float: right;
   background-color: #FDFDFD;
   border: none;
-
+  color: #444;
   cursor: pointer;
 
   visibility: hidden;
