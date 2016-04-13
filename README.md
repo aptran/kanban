@@ -1,5 +1,6 @@
 # Kanban
 A kanban web app created using this [tutorial](http://survivejs.com/webpack_react). 
+View live demo [here](http://aptran.github.io/kanban).
 
 ## Installation
 ```
