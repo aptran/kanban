@@ -64,9 +64,6 @@ export default class Lane extends React.Component {
         opacity: isDragging ? 0 : 1
       }} {...props}>
         <div className="lane-header" onClick={this.activateLaneEdit}>
-          <div className="lane-add-note">
-            <button onClick={this.addNote}>+</button>
-          </div>
           <Editable className="lane-name" editing={lane.editing}
             value={lane.name} onEdit={this.editName} />
           <div className="lane-delete">
@@ -85,6 +82,9 @@ export default class Lane extends React.Component {
             onColorEdit={this.editColor} 
             onDelete={this.deleteNote} />
         </AltContainer>
+        <div className="lane-add-note">
+            <button onClick={this.addNote}>+ Add Note</button>
+        </div>
       </div>
     ));
   }

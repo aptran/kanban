@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 body {
   background: #55A1DD;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .wrapper {
@@ -11,6 +13,10 @@ body {
   color: #FFF;
   font-size: 24px;
   text-align: center;
+}
+
+button {
+  font-family: 'Raleway', sans-serif;
 }
 
 input {
@@ -27,7 +33,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 0.5em;
 
-  min-width: 12em;
+  min-width: 10em;
   vertical-align: top;
 }
 
@@ -46,11 +52,6 @@ input {
 .lane-name {
   font-size: 22px;
   float: left;
-}
-
-.lane-add-note {
-  float: left;
-  margin-right: 0.8em;
 }
 
 .lane-delete {
@@ -79,15 +80,34 @@ input {
   transition: 0.4s;	
 }
 
+
+.lane-add-note {
+  padding: 0.5em;
+  margin-top: 1.5em;
+  box-shadow: 0 -0.05em rgba(0, 0, 0, 0.3);
+}
+
 .lane-add-note button {
-  padding: 0.2em 0.4em;
+  padding: 0.5em;
+  width: 100%;
   cursor: pointer;
   font-size: 16px;
-  background-color: #55A1DD;
-  border: 1px solid #FFF;
-  border-radius: 0.3em;
-  color: #FFF;
+
+  background-color: #FFF;
+  color: #333;
+
+  border: none;
+  box-shadow: 0 0 0.3em 0.03em rgba(0, 0, 0, 0.3);
+  
+  text-align: left;
 }
+.lane-add-note button:hover {
+  background-color: #333;
+  color: #FFF;
+  box-shadow: 0 0 0.5em 0.05em rgba(0, 0, 0, 0.8);
+  transition: 0.4s;
+}
+
 
 .lane-delete button {
   padding: 0;
@@ -106,7 +126,6 @@ input {
   margin: 0.5em;
   padding-left: 0;
 
-  min-width: 10em;
   list-style: none;
 }
 
@@ -146,7 +165,7 @@ input {
 .note .value {
   /* force to use inline-block so that it gets minimum height */
   display: inline-block;
-  width: 10em;
+  width: 9em;
 }
 
 .note .delete {
