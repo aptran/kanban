@@ -52,6 +52,7 @@ const common = {
     new HtmlWebpackPlugin({
       template: 'node_modules/html-webpack-template/index.ejs',
       title: 'Kanban App',
+      favicon: 'app/favicon.ico',
       appMountId: 'app',
       inject: false
     })
