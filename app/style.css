@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
 body {
-  background: #55A1DD;
+  background: url('http://www.hdnicewallpapers.com/Walls/Big/Nature%20and%20Landscape/Nature_Cliffs_of_Moher_in_Ireland_Wallpaper.jpg') no-repeat;
+  background-size: cover;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -29,8 +30,8 @@ input {
 
   margin: 1em;
 
-  background-color: #efefef;
-  border: 1px solid #ccc;
+  background-color: #EFEFEF;
+  border: 1px solid #CCC;
   border-radius: 0.5em;
 
   min-width: 10em;

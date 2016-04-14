@@ -27,6 +27,7 @@ class NoteStore {
   update(updatedNote) {
     const notes = this.notes.map(note => {
       if(note.id === updatedNote.id) {
+        console.log('found it');
         // Object.assign is used to patch the note data here. It
         // mutates target (first parameter). In order to avoid that,
         // I use {} as its target and apply data on it.
@@ -41,6 +42,22 @@ class NoteStore {
     });
 
     this.setState({notes});
+  }
+  updateColor(updatedNoteId) {
+    const bgColorOptions = ['#FDFDFD', '#FF9C94', '#FDFD96', '#7CEB98'];
+    const note = this.notes.filter(note => {
+      if(note.id === updatedNoteId) {
+        return note;
+      }
+    })[0];
+
+    const currColorIdx = bgColorOptions.indexOf(note.bgcolor);
+    const newBgColor = currColorIdx === bgColorOptions.length-1 ? bgColorOptions[0] : bgColorOptions[currColorIdx+1];
+    
+    note.bgcolor = newBgColor;
+
+    this.setState({notes: this.notes});
+
   }
   delete(id) {
     this.setState({

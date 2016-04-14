@@ -79,7 +79,7 @@ export default class Lane extends React.Component {
           <Notes 
             onValueClick={this.activateNoteEdit}
             onEdit={this.editNote}
-            onColorEdit={this.editColor} 
+            onColorEdit={this.editNoteColor} 
             onDelete={this.deleteNote} />
         </AltContainer>
         <div className="lane-add-note">
@@ -98,9 +98,9 @@ export default class Lane extends React.Component {
 
     NoteActions.update({id, task, editing: false});
   };
-  editColor(id) {
+  editNoteColor(id) {
 
-    NoteActions.update({id, bgcolor: '#7CEB98'});
+    NoteActions.updateColor(id);
   };
   addNote = (e) => {
     // If note is added, avoid opening lane name edit by stopping
