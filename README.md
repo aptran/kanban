@@ -16,7 +16,9 @@ The application should be running on http://localhost:8080/.
 
 ## My feature extensions
 * Delete note references when lane is deleted.
-* Custom styling.
-  * Change note color.
 * DnD of Note Lanes.
+* Webpack includes file-loader for jpg/png images in build.
+* Custom styling.
+  * Google Font - Raleway.
+  * Change note colors according to status (white, red, yellow, green).
 
