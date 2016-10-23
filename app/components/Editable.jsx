@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Editable extends React.Component {
   render() {
-    const {value, onEdit, onValueClick, editing, ...props} = this.props;
+    const {value, onEdit, onValueClick, editing, bgcolor, onColorEdit, onDelete, ...props} = this.props;
 
     return (
       <div {...props}>
